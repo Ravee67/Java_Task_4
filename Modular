@@ -1,0 +1,75 @@
+package Main;
+
+import java.util.Scanner;
+
+public class ModularCalculator {
+
+    public static void printLine() {
+        System.out.println("----------------------------");
+    }
+
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static double add(double a, double b) {
+        return a + b;
+    }
+
+    public static int subtract(int a, int b) {
+        return a - b;
+    }
+
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public static double divide(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero!");
+        }
+        return (double) a / b;
+    }
+
+    public static void modifyValue(int x) {
+        x = x + 10;
+        System.out.println("Inside modifyValue method: " + x);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        printLine();
+        System.out.println("MODULAR CALCULATOR");
+        printLine();
+
+        System.out.print("Enter first number: ");
+        int num1 = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int num2 = sc.nextInt();
+
+        printLine();
+        System.out.println("Addition (int): " + add(num1, num2));
+        System.out.println("Addition (double): " + add(10.5, 20.5));
+        System.out.println("Subtraction: " + subtract(num1, num2));
+        System.out.println("Multiplication: " + multiply(num1, num2));
+
+        try {
+            System.out.println("Division: " + divide(num1, num2));
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        printLine();
+
+        int value = 5;
+        System.out.println("Before modifyValue method: " + value);
+        modifyValue(value);
+        System.out.println("After modifyValue method: " + value);
+
+        printLine();
+        sc.close();
+    }
+}
